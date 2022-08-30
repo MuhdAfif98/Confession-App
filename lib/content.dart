@@ -37,11 +37,11 @@ class _ContentState extends State<Content> {
   LiquidController liquidController = LiquidController();
 
   List<ItemData> data = [
-    ItemData(Color.fromRGBO(255, 183, 196, 1), "bunny-couple.json",
+    ItemData(Color.fromRGBO(255, 183, 196, 1), "assets/bunny-couple.json",
         "I fell in love with you the day I met you"),
-    ItemData(Color.fromRGBO(255, 227, 227, 1), "bunny-squeeze.json",
+    ItemData(Color.fromRGBO(255, 227, 227, 1), "assets/bunny-squeeze.json",
         "You know you're in love when you can't feel asleep because reality is finally better than dreams"),
-    ItemData(Color.fromRGBO(225, 239, 242, 1), "unicorn-popcorn.json",
+    ItemData(Color.fromRGBO(225, 239, 242, 1), "assets/unicorn-popcorn.json",
         "I don't need immortality, you're my forever")
   ];
 
@@ -77,6 +77,7 @@ class _ContentState extends State<Content> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Stack(
           children: <Widget>[
@@ -86,41 +87,45 @@ class _ContentState extends State<Content> {
                 return Container(
                   width: double.infinity,
                   color: data[index].color,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Lottie.asset(
-                        data[index].image,
-                        height: 200,
-                        fit: BoxFit.contain,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Center(
-                        child: Column(
-                          children: <Widget>[
-                            Text(
-                              "${widget.name},",
-                              style: GoogleFonts.loveLight(
-                                  textStyle: const TextStyle(
-                                      fontSize: 50,
-                                      color: Colors.black87,
-                                      fontWeight: FontWeight.w400)),
-                            ),
-                            Text(
-                              data[index].text1,
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.loversQuarrel(
-                                  textStyle: const TextStyle(
-                                      fontSize: 50,
-                                      color: Colors.black87,
-                                      fontWeight: FontWeight.w400)),
-                            )
-                          ],
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal:30.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Lottie.asset(
+                          data[index].image,
+                          height: 200,
+                          fit: BoxFit.contain,
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Center(
+                          child: Column(
+                            children: <Widget>[
+                              Text(
+                                "${widget.name},",
+                                style: GoogleFonts.loveLight(
+                                    textStyle: const TextStyle(
+                                        fontSize: 50,
+                                        color: Colors.black87,
+                                        fontWeight: FontWeight.w400)),
+                              ),
+                              Text(
+                                data[index].text1,
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.loversQuarrel(
+                                    textStyle: const TextStyle(
+                                        fontSize: 50,
+                                        color: Colors.black87,
+                                        fontWeight: FontWeight.w400)),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },

@@ -19,16 +19,16 @@ class _ConfessState extends State<Confess> {
       backgroundColor: Colors.white,
       body: Center(
           child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Lottie.asset("wedding.json"),
+          Lottie.asset("assets/wedding.json", width: 300,frameRate: FrameRate(120)),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ScaleTap(
                   onPressed: () {},
                   child: Container(
-                    width: 200,
-                    height: 50,
+                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                     decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           begin: Alignment(-1, 1),
@@ -65,8 +65,7 @@ class _ConfessState extends State<Confess> {
               ScaleTap(
                   onPressed: () {},
                   child: Container(
-                    width: 200,
-                    height: 50,
+                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                     decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           begin: Alignment(-1, 1),
